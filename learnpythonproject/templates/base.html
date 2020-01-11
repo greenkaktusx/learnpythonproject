@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <title>{% block title %}{{ meta_title }}{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper" id="header">
+        <div class="wrapper-inner">
+            <div class="logo">Python Learn Project</div>
+            <div class="header-menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'home:index' %}" title="Главная">Главная</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'passwordgenerator:index' %}" title="Генератор паролей">Генератор паролей</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="wrapper" id="content">
+        <div class="wrapper-inner">
+            {% block content %}
+                <div class="title">{{ title }}</div>
+                <div class="description">
+                    <p>Данный проект реализован исключительно в образовательных целях для изучения языка Python и фреймворка Django.</p>
+                    <p>Реализованные здесь приложения охватывают различные аспекты изучаемых технологий, поэтому выбранны только из-за этого. Однако практическую пользу в реальной работе им также можно найти.</p>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="wrapper" id="footer">
+        <div class="wrapper-inner">
+            <div class="copyright">
+                &copy; 2020 <a href="https://github.com/greenkaktusx" title="GitHub" target="_blank">Alexeev Alexey</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
