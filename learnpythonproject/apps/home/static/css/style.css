@@ -1,5 +1,5 @@
 html, body { margin: 0; padding: 0; min-height: 100vh; font-family: Tahoma, sans-serif; background: #3c3f41; }
-html, body, html *, body * { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+html, body, html *, body * { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; color: #ffffff; }
 
 .clear { clear: both; }
 
