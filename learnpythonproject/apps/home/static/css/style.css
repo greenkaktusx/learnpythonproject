@@ -6,6 +6,8 @@ html, body, html *, body * { box-sizing: border-box; -webkit-box-sizing: border-
 .wrapper { width: 100%; }
 .wrapper-inner { width: 1200px; margin: 0 auto; }
 
+input, button { color: #272822; }
+
 #header { height: 50px; padding: 15px 0; }
 #header, #footer { background: #272822; }
 #header, #header a, #footer, #footer a { color: #d5d5d5; }

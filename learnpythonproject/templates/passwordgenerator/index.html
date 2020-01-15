@@ -5,32 +5,25 @@
 {% block content %}
     <div class="title">{{ title }}</div>
     <p>Укажите необходимые параметры и нажмите кнопку "Сгенерировать"</p>
-    <form action="{% url 'passwordgenerator:index' %}" method="post">
+    <form action="{% url 'passwordgenerator:index' %}" method="POST">
         {% csrf_token %}
-        <input type="checkbox" name="digit" id="digit" checked="checked" />
-        <label for="digit">цифры 0-9</label><br/>
-
-        <input type="checkbox" name="smallSymbols" id="smallSymbols" checked="checked" />
-        <label for="smallSymbols">маленькие буквы a-z</label><br/>
-
-        <input type="checkbox" name="bigSymbols" id="bigSymbols" checked="checked" />
-        <label for="bigSymbols">большие буквы A-Z</label><br/>
-
-        <input type="checkbox" name="specialSymbols" id="specialSymbols" />
-        <label for="specialSymbols">специальные символы %, *, ), ?, @, #, $, ~</label><br/>
-
-        <input type="checkbox" name="skipDoubles" id="skipDoubles" />
-        <label for="skipDoubles">избегать повторяющихся символов</label><br/>
-
-        <input type="checkbox" name="skipSimilar" id="skipSimilar" />
-        <label for="skipSimilar">избегать похожие символы i, l, 1, L, o, 0, O</label><br/>
-
-        <label for="count">Количество паролей</label><br/>
-        <input type="text" name="count" id="count" value="6" /><br/>
-
-        <label for="length">Длина пароля</label><br/>
-        <input type="text" name="length" id="length" value="12" /><br/><br/>
-
+        {% for field in form %}
+            <p>
+                {% if field.name == 'count' or field.name == 'length' %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                {% else %}
+                    {{ field }}
+                    {{ field.label_tag }}
+                {% endif %}
+            </p>
+        {% endfor %}
         <button type="submit">Сгенерировать</button>
     </form>
+
+    {% if password %}
+        <br/>
+        Сгенерированный пароль:<br/>
+        {{ password }}
+    {% endif %}
 {% endblock %}
