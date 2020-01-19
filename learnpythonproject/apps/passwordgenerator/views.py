@@ -1,7 +1,13 @@
 from django.shortcuts import render
 from .forms import GeneratePasswordForm
 
+
 def index(request):
+    """
+    Вывод страницы с формой генерации пароля
+    :param request:
+    :return:
+    """
     password = ''
 
     if request.method == 'POST':

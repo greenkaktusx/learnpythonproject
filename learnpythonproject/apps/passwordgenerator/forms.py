@@ -20,16 +20,50 @@ class GeneratePasswordForm(forms.Form):
     def get_password(self):
         """
         Генерация пароля
-        :return: Сгенерованный пароль
-        """
-        symbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-                   'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-                   'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-                   'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-                   'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3',
-                   '4', '5', '6', '7', '8', '9', '0']
 
+        :return: Сгенерованный пароль
+
+        """
+
+        # Цифры
+        digit_symbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+        # Маленькие буквы ангийского алфавита
+        small_symbols = [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ]
+
+        # Большие буквы английского алфавита
+        big_symbols = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ]
+
+        # Специальные символы
+        special_symbols = ['%', '*', '(', ')', '?', '@', '#', '$', '~']
+
+        # Похожие символы
+        similar_symbols = ['i', 'I', 'l', 'L', '1', 'o', 'O', '0']
+
+        # Длина пароля
         password_length = int(self.cleaned_data['length']) if self.cleaned_data['length'] else 12
+
+        # Проверяем включенные параметры формы и формируем итоговый список символов,
+        # из которых будет сформирован пароль
+        symbols = []
+
+        if self.cleaned_data['digit_symbols']:
+            symbols.extend(digit_symbols)
+
+        if self.cleaned_data['small_symbols']:
+            symbols.extend(small_symbols)
+
+        if self.cleaned_data['big_symbols']:
+            symbols.extend(big_symbols)
+
+        if self.cleaned_data['special_symbols']:
+            symbols.extend(special_symbols)
 
         password = []
 
