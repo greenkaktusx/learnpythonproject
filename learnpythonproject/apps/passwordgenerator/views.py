@@ -8,13 +8,13 @@ def index(request):
     :param request:
     :return:
     """
-    password = ''
+    passwords = []
 
     if request.method == 'POST':
         form = GeneratePasswordForm(request.POST)
 
         if form.is_valid():
-            password = form.get_password()
+            passwords = form.get_password()
     else:
         form = GeneratePasswordForm
 
@@ -22,5 +22,5 @@ def index(request):
         'meta_title': 'Генератор паролей',
         'title': 'Генератор паролей',
         'form': form,
-        'password': password
+        'passwords': passwords
     })

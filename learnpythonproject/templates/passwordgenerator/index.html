@@ -21,9 +21,17 @@
         <button type="submit">Сгенерировать</button>
     </form>
 
-    {% if password %}
+    {% if passwords|length %}
         <br/>
-        Сгенерированный пароль:<br/>
-        {{ password }}
+        {% if passwords|length == 1 %}
+            Сгенерированный пароль:
+        {% else %}
+            Сгенерированные пароли:
+        {% endif %}<br/>
+        <ul>
+            {% for password in passwords %}
+                <li>{{ password }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
 {% endblock %}
