@@ -1,25 +1,34 @@
-html, body { margin: 0; padding: 0; min-height: 100vh; font-family: Tahoma, sans-serif; background: #3c3f41; }
-html, body, html *, body * { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; color: #ffffff; }
+/**
+Темная цветовая схема:
+#323232 - основной цвет
+#404040 - шапка, подвал, сайдбар, блоки
+#BFBFBF - цвет текста и ссылок
+#808080 - дополнительный цвет, который можно использовать
+ */
+html, body { margin: 0; padding: 0; min-height: 100vh; font-family: Tahoma, sans-serif; background: #323232; }
+html, body, html *, body * { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; color: #BFBFBF; }
 
 .clear { clear: both; }
 
 .wrapper { width: 100%; }
 .wrapper-inner { width: 1200px; margin: 0 auto; }
 
-input, button { color: #272822; }
+input, button { color: #BFBFBF; background: none; border: 1px solid #BFBFBF; padding: 5px; outline: none; }
+button { cursor: pointer; }
+button:hover { background: #BFBFBF; color: #323232; }
 
 #header { height: 50px; padding: 15px 0; }
-#header, #footer { background: #272822; }
-#header, #header a, #footer, #footer a { color: #d5d5d5; }
+#header, #footer { background: #404040; }
+#header, #header a, #footer, #footer a { color: #BFBFBF; }
 #header a, #footer a { text-decoration: none; }
-#header a:hover, #footer a:hover { color: #ffffff; }
+#header a:hover, #footer a:hover { color: #BFBFBF; }
 
 #footer { height: 30px; padding: 7px 0; }
 #footer .copyright { font-size: 14px; }
 
 #content { min-height: calc(100vh - 80px); padding: 40px 0; }
 
-.title { color: #ffffff; font-size: 26px; }
+.title { color: #BFBFBF; font-size: 26px; }
 .description { color: #d5d5d5; font-size: 16px; padding: 15px 0; }
 
 .logo { float: left; font-weight: bold; font-size: 18px; }
